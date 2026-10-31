@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+@use '../base/typography' as *;
+
+.theme-toggle {
+  @include text-preset-8;
+
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-200;
+  text-transform: uppercase;
+  color: $neutral-500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-toggle__icons {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: rem(20px);
+  height: rem(20px);
+}
+
+.theme-toggle__icon {
+  grid-area: 1 / 1;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+  will-change: opacity, transform;
+}
+
+.theme-toggle__icon--moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.theme-toggle__icon--sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+[data-theme='dark'] .theme-toggle__icon--moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+[data-theme='dark'] .theme-toggle__icon--sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
