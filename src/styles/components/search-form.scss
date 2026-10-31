@@ -1,0 +1,109 @@
+@use '../abstracts' as *;
+@use '../base/typography' as *;
+
+.search-form {
+  position: relative;
+  width: 100%;
+  padding-block: $spacing-100;
+  padding-inline: $spacing-150;
+  background: $neutral-0;
+  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
+  border-radius: $radius-16;
+
+  &:focus-within {
+    outline: 2px solid $blue-500;
+    outline-offset: 4px;
+  }
+}
+
+.search-form__label {
+  @include visually-hidden;
+}
+
+.search-form__wrapper {
+  display: flex;
+
+  @include tablet {
+    gap: $spacing-300;
+  }
+}
+
+.search-form__line {
+  display: flex;
+  align-items: center;
+  gap: $spacing-100;
+  width: 100%;
+
+  @include tablet {
+    gap: $spacing-250;
+  }
+}
+
+.search-form__icon {
+  width: rem(20px);
+  height: rem(19px);
+
+  @include tablet {
+    width: rem(24px);
+    height: rem(24px);
+  }
+}
+
+.search-form__input {
+  @include text-preset-3;
+
+  width: 100%;
+  color: $neutral-700;
+  border: none;
+
+  &::placeholder {
+    @include text-preset-3;
+
+    color: $neutral-500;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.search-form__error {
+  @include text-preset-5;
+
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  color: $red-500;
+  transition: opacity 0.2s ease;
+
+  &:empty {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @include tablet {
+    position: static;
+  }
+}
+
+.search-form__submit {
+  @include text-preset-5;
+
+  padding-inline: $spacing-250;
+  padding-block: $spacing-150;
+  color: $neutral-0;
+  background-color: $blue-500;
+  border-radius: $radius-10;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:focus-visible {
+    outline: 2px solid $blue-500;
+    outline-offset: 2px;
+  }
+
+  @include hover {
+    background-color: $blue-300;
+  }
+}

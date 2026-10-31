@@ -71,14 +71,32 @@
         >Search GitHub username…
         </label>
         <div class="search-form__wrapper">
-          <input
-            class="search-input"
-            id="search-input"
-            type="search"
-            placeholder="Search GitHub username…"
-            required
-            autocomplete="off"
-          >
+          <div class="search-form__line">
+            <img
+              class="search-form__icon"
+              src="/icons/icon-search.svg"
+              alt=""
+              width="25"
+              height="24"
+            >
+            <input
+              class="search-form__input"
+              id="search-input"
+              type="search"
+              placeholder="Search GitHub username…"
+              required
+              autocomplete="off"
+              aria-describedby="search-error"
+              aria-invalid="false"
+            >
+            <p
+              class="search-form__error"
+              id="search-error"
+              role="alert"
+              aria-live="assertive"
+            >
+            </p>
+          </div>
           <button
             class="search-form__submit"
             type="submit"

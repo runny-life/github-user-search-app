@@ -9,7 +9,14 @@ body {
   background: $neutral-100;
 }
 
+.content {
+  width: 100%;
+}
+
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-400;
   min-height: 100vh;
   max-width: calc($container-max-width + $container-padding-x * 2);
   padding-inline: $container-padding-x;
@@ -22,9 +29,8 @@ body {
   }
 
   @include desktop {
-    @include flex-center;
-
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding-top: 0;
     padding-bottom: 0;
   }
