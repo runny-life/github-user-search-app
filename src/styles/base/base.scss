@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+@use './typography' as *;
+
+body {
+  @include text-preset-6;
+
+  min-height: 100vh;
+  font-family: $font-family-base;
+  background: $neutral-100;
+}
+
+.container {
+  min-height: 100vh;
+  max-width: calc($container-max-width + $container-padding-x * 2);
+  padding-inline: $container-padding-x;
+  padding-top: rem(32px);
+  padding-bottom: rem(100px);
+  margin-inline: auto;
+
+  @include tablet {
+    padding-top: rem(40px);
+  }
+
+  @include desktop {
+    @include flex-center;
+
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

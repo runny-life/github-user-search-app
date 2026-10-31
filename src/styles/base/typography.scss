@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+@mixin text-preset-1 {
+  font-weight: 700;
+  font-size: rem(26);
+  line-height: 1.2;
+}
+
+@mixin text-preset-2 {
+  font-weight: 700;
+  font-size: rem(22px);
+  line-height: 1.4;
+}
+
+@mixin text-preset-3 {
+  font-weight: 400;
+  font-size: fluid(13px, 18px, 375px, 768px);
+  line-height: 1.4;
+}
+
+@mixin text-preset-4 {
+  font-weight: 400;
+  font-size: rem(16px);
+  line-height: 1.5;
+}
+
+@mixin text-preset-5 {
+  font-weight: 700;
+  font-size: rem(16px);
+  line-height: 1.5;
+}
+
+@mixin text-preset-6 {
+  font-weight: 400;
+  font-size: rem(15px);
+  line-height: 1.5;
+}
+
+@mixin text-preset-7 {
+  font-weight: 400;
+  font-size: rem(13px);
+  line-height: 1.5;
+}
+
+@mixin text-preset-8 {
+  font-weight: 700;
+  font-size: rem(13px);
+  line-height: 1.4;
+  letter-spacing: 0.19em;
+}

@@ -1,0 +1,48 @@
+@use 'functions' as *;
+
+/*Colors*/
+$neutral-0: #ffffff;
+$neutral-100: #f6f8ff;
+$neutral-200: #90a4d4;
+$neutral-300: #697c9a;
+$neutral-500: #4b6a9b;
+$neutral-700: #2b3442;
+$neutral-800: #1e2a47;
+$neutral-900: #141d2f;
+$blue-300: #60abff;
+$blue-500: #0079ff;
+$red-500: #f74646;
+
+/*Fonts*/
+$font-family-base: 'Space Mono', sans-serif;
+
+/*Container*/
+$container-max-width: rem(730px);
+$container-padding-x: fluid(16px, 32px);
+
+/*Spacings*/
+$spacing-025: rem(2px);
+$spacing-050: rem(4px);
+$spacing-075: rem(6px);
+$spacing-100: rem(8px);
+$spacing-125: rem(10px);
+$spacing-150: rem(12px);
+$spacing-200: rem(16px);
+$spacing-250: rem(20px);
+$spacing-300: rem(24px);
+$spacing-400: rem(32px);
+$spacing-500: rem(40px);
+$spacing-600: rem(48px);
+$spacing-800: rem(64px);
+$spacing-1000: rem(80px);
+
+/*Radius*/
+$radius-4: 4px;
+$radius-6: 6px;
+$radius-8: 8px;
+$radius-10: 10px;
+$radius-12: 12px;
+$radius-16: 16px;
+$radius-20: 20px;
+$radius-24: 24px;
+$radius-full: 999px;
