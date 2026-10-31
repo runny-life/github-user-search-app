@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-weight: 700;
+  font-size: rem(26px);
+  line-height: 1;
+  color: $neutral-900;
+}
