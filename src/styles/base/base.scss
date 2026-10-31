@@ -24,6 +24,7 @@ body {
   @include desktop {
     @include flex-center;
 
+    flex-direction: column;
     padding-top: 0;
     padding-bottom: 0;
   }
