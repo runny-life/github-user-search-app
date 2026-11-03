@@ -2,10 +2,13 @@
 @use '../base/typography' as *;
 
 .contacts {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: $spacing-200;
   list-style-type: none;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .contacts__item {
