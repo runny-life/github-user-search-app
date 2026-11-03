@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+@use '../base/typography' as *;
+
+.profile-stats {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-200;
+  padding-inline: $spacing-250;
+  padding-block: $spacing-200;
+  background-color: $neutral-100;
+  border-radius: $radius-10;
+}
+
+.profile-stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-050;
+
+  & dt {
+    @include text-preset-7;
+
+    color: $neutral-500;
+  }
+
+  & dd {
+    @include text-preset-2;
+
+    color: $neutral-700;
+  }
+}
