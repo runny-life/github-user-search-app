@@ -2,20 +2,28 @@
 @use '../base/typography' as *;
 
 .profile-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: $spacing-300;
   padding-inline: $spacing-300;
   padding-block: $spacing-400;
   border-radius: $radius-16;
   background-color: $neutral-0;
   box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
+
+  @include tablet {
+    grid-template-columns: auto 1fr;
+    gap: $spacing-400;
+  }
 }
 
 .profile-card__header {
   display: flex;
   align-items: center;
   gap: $spacing-250;
+
+  @include tablet {
+    display: contents;
+  }
 }
 
 .profile-card__body {
@@ -41,6 +49,12 @@
   height: rem(70px);
   border-radius: $radius-full;
   overflow: hidden;
+
+  @include tablet {
+    grid-row: 1 / span 3;
+    width: rem(117);
+    height: rem(117);
+  }
 }
 
 .profile-card__name {
