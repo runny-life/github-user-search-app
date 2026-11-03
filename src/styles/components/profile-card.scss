@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+@use '../base/typography' as *;
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-300;
+  padding-inline: $spacing-300;
+  padding-block: $spacing-400;
+  border-radius: $radius-16;
+  background-color: $neutral-0;
+  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
+}
+
+.profile-card__header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-250;
+}
+
+.profile-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-300;
+}
+
+.profile-card__header-body {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-050;
+}
+
+.profile-card__titles {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-025;
+}
+
+.profile-card__avatar-wrapper {
+  width: rem(70px);
+  height: rem(70px);
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.profile-card__name {
+  @include text-preset-1;
+
+  color: $neutral-700;
+}
+
+.profile-card__login {
+  @include text-preset-4;
+
+  color: $blue-500;
+}
+
+.profile-card__joined,
+.profile-card__bio {
+  @include text-preset-6;
+
+  color: $neutral-500;
+}
