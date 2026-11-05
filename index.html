@@ -110,6 +110,7 @@
         class="profile-card"
         id="profile-card"
         aria-live="polite"
+        hidden
       >
         <header class="profile-card__header">
           <div class="profile-card__avatar-wrapper">
@@ -256,6 +257,19 @@
           </ul>
         </footer>
       </article>
+      <section
+        class="profile-error"
+        id="profile-error"
+        role="alert"
+        aria-live="assertive"
+        hidden
+      >
+        <h2 class="profile-error__title">No results found!</h2>
+        <p class="profile-error__text">
+          We couldn’t find any GitHub users matching your search.
+          Please double-check the username and try again.
+        </p>
+      </section>
     </main>
   </div>
   <script

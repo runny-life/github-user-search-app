@@ -36,6 +36,7 @@ export class ThemeToggle {
 
     const isDark = this.currentTheme === ThemeToggle.DARK;
     this.button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    this.button.setAttribute('aria-pressed', isDark ? 'true' : 'false');
   }
 
   toggle() {
