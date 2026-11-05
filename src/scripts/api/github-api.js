@@ -5,7 +5,9 @@ export class GithubApi {
     this.octocit = new Octokit({ auth: token });
   }
 
-  async futchUser(username) {
+  async fetchUser(username) {
     const { data } = await this.octocit.request(`GET /users/${username}`);
+
+    return data;
   }
 }

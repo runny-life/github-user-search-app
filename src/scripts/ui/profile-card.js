@@ -26,6 +26,7 @@ export class ProfileCard {
   }
 
   render(data) {
+    console.log(data);
     this.renderHeader(data);
     this.renderStats(data);
     this.renderLinks(data);
