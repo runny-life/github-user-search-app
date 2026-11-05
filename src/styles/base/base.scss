@@ -6,7 +6,8 @@ body {
 
   min-height: 100vh;
   font-family: $font-family-base;
-  background: $neutral-100;
+  background: var(--bg-body);
+  color: var(--text-secondary);
 }
 
 .content {

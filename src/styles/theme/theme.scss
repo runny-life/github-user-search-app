@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as *;
+
+:root {
+  --bg-body: #{$neutral-100};
+  --bg-card: #{$neutral-0};
+  --bg-second-card: #{$neutral-100};
+  --text-accent: #{$neutral-0};
+  --text-toggle-theme: #{$neutral-500};
+  --text-toggle-theme-hover: #{$neutral-700};
+  --text-logo: #{$neutral-900};
+  --text-primary: #{$neutral-700};
+  --text-secondary: #{$neutral-500};
+  --text-muted: #{$neutral-300};
+  --icon: #{$neutral-900};
+  --accent: #{$blue-500};
+  --accent-hover: #{$blue-300};
+  --error: #{$red-500};
+  --shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.2);
+}
+
+[data-theme='dark'] {
+  --bg-body: #{$neutral-900};
+  --bg-card: #{$neutral-800};
+  --bg-second-card: #{$neutral-900};
+  --text-accent: #{$neutral-0};
+  --text-logo: #{$neutral-0};
+  --text-toggle-theme: #{$neutral-200};
+  --text-toggle-theme-hover: #{$neutral-0};
+  --text-primary: #{$neutral-0};
+  --text-secondary: #{$neutral-0};
+  --text-muted: #{$neutral-300};
+  --icon: #{$neutral-0};
+  --accent: #{$blue-500};
+  --accent-hover: #{$blue-300};
+  --error: #{$red-500};
+  --shadow: none;
+}

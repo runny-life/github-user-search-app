@@ -8,7 +8,7 @@
   align-items: center;
   gap: $spacing-200;
   text-transform: uppercase;
-  color: $neutral-500;
+  color: var(--text-toggle-theme);
   background: none;
   border: none;
   border-radius: $radius-4;
@@ -16,12 +16,12 @@
   transition: color 0.2s ease;
 
   &:focus-visible {
-    outline: 2px solid $blue-500;
+    outline: 2px solid var(--accent);
     outline-offset: 4px;
   }
 
   @include hover {
-    color: $neutral-700;
+    color: var(--text-toggle-theme-hover);
   }
 }
 
