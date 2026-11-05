@@ -17,8 +17,9 @@
   gap: $spacing-200;
   color: $neutral-500;
 
-  &:not(:has(a)) {
+  & .disabled {
     opacity: 0.7;
+    pointer-events: none;
   }
 
   & a {

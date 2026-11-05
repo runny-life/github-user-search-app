@@ -63,6 +63,7 @@
     <main class="content">
       <form
         class="search-form"
+        id="search-form"
         role="search"
       >
         <label
@@ -106,11 +107,13 @@
       </form>
       <article
         class="profile-card"
+        id="profile-card"
         aria-live="polite"
       >
         <header class="profile-card__header">
           <div class="profile-card__avatar-wrapper">
             <img
+              id="profile-avatar"
               class="profile-card__avatar-image"
               src="./src/assets/image/avatar.jpg"
               alt="Octocat"
@@ -119,32 +122,45 @@
 
           <div class="profile-card__header-body">
             <div class="profile-card__titles">
-              <h1 class="profile-card__name">The Octocat</h1>
-              <p class="profile-card__login">@octocat</p>
+              <h1
+                class="profile-card__name"
+                id="profile-name"
+              >The Octocat
+              </h1>
+              <p
+                class="profile-card__login"
+                id="profile-login"
+              >@octocat
+              </p>
             </div>
 
             <time
               class="profile-card__joined"
+              id="profile-joined"
               datetime="2011-01-25"
             >Joined 25 Jan 2011
             </time>
           </div>
         </header>
         <div class="profile-card__body">
-          <p class="profile-card__bio">This profile has no bio</p>
+          <p
+            class="profile-card__bio"
+            id="profile-bio"
+          >This profile has no bio
+          </p>
 
           <dl class="profile-card__stats profile-stats">
             <div class="profile-stats__item">
               <dt>Repos</dt>
-              <dd>8</dd>
+              <dd id="profile-repos">8</dd>
             </div>
             <div class="profile-stats__item">
               <dt>Followers</dt>
-              <dd>3938</dd>
+              <dd id="profile-followers">3938</dd>
             </div>
             <div class="profile-stats__item">
               <dt>Following</dt>
-              <dd>9</dd>
+              <dd id="profile-following">9</dd>
             </div>
           </dl>
         </div>
@@ -164,13 +180,14 @@
                 />
               </svg>
               <a
+                id="profile-location"
                 href="https://www.google.com/maps/place/%D0%A1%D0%B0%D0%BD-%D0%A4%D1%80%D0%B0%D0%BD%D1%86%D0%B8%D1%81%D0%BA%D0%BE,+%D0%9A%D0%B0%D0%BB%D0%B8%D1%84%D0%BE%D1%80%D0%BD%D0%B8%D1%8F,+%D0%A1%D0%A8%D0%90/@37.7577607,-122.4788853,13z/data=!3m1!4b1!4m6!3m5!1s0x80859a6d00690021:0x4a501367f076adff!8m2!3d37.7749295!4d-122.4194155!16zL20vMGQ2bHA?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
               >San Francisco
               </a>
             </li>
-            <li class="contacts__item">
+            <li class="contacts__item ">
               <svg
                 class="contacts__icon contacts__icon--twitter"
                 height="18"
@@ -183,7 +200,14 @@
                   fill="currentColor"
                 />
               </svg>
-              <span>Not Available</span>
+              <a
+                class="disabled"
+                id="profile-twitter"
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
+              >Not Available
+              </a>
             </li>
             <li class="contacts__item">
               <svg
@@ -199,6 +223,7 @@
                 </g>
               </svg>
               <a
+                id="profile-blog"
                 href="https://github.blog"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -219,7 +244,8 @@
                 </g>
               </svg>
               <a
-                href="https://github.com/github"
+                id="profile-company"
+                href="https://github/github"
                 target="_blank"
                 rel="noopener noreferrer"
               >

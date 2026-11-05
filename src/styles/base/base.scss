@@ -28,13 +28,11 @@ body {
   margin-inline: auto;
 
   @include tablet {
-    padding-top: rem(40px);
+    padding-block: rem(40px);
   }
 
   @include desktop {
-    align-items: center;
-    justify-content: center;
-    padding-top: 0;
+    padding-top: rem(130px);
     padding-bottom: 0;
   }
 }
