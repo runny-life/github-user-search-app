@@ -1,116 +1,200 @@
-# Frontend Mentor - GitHub user search app
+# GitHub User Search App
 
-![Design preview for the GitHub user search app coding challenge](./preview.jpg)
+A responsive GitHub profile search application built with vanilla JavaScript, SCSS, Vite, and the GitHub REST API.
+Search for a GitHub username to view profile details, repository statistics, and contact links. The interface also
+supports light and dark themes.
 
-## Welcome! 👋
+![GitHub User Search App preview](./preview.png)
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+## Table of contents
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Features](#features)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Project structure](#project-structure)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI collaboration](#ai-collaboration)
+- [Getting started](#getting-started)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-**To do this challenge, you need a good understanding of HTML, CSS, and JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this GitHub user search app using the [GitHub users API](https://docs.github.com/en/rest/reference/users#get-a-user) and get it looking as close to the design as possible.
+This project is a solution to
+the [Frontend Mentor GitHub user search app challenge](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6).
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+The goal was to build an interface that allows users to search for GitHub accounts and view the information returned by
+the GitHub Users API.
 
-Your users should be able to:
+### Features
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Search for GitHub users by their username
-- See relevant user information based on their search
-- Switch between light and dark themes
-- **Bonus**: Have the correct color scheme chosen for them based on their computer preferences. _Hint_: Research `prefers-color-scheme` in CSS.
+- Search for GitHub users by username.
+- Display a user's avatar, name, username, join date, bio, repository count, followers, and following.
+- Display location, website, X (Twitter), and company information when available.
+- Show a fallback message when optional profile information is missing.
+- Display an error state when a user cannot be found or the request fails.
+- Toggle between light and dark themes.
+- Detect the operating system's preferred color scheme on the first visit.
+- Save the selected theme in `localStorage` so it is restored on subsequent visits.
+- Responsive layout with interactive hover states.
 
-### Want some support on the challenge?
+### Links
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+- **Frontend Mentor
+  challenge:** [GitHub user search app](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6)
+- **Solution URL:** [GitHub Repo](https://github.com/runny-life/github-user-search-app)
+- **Live site URL:** [GitHub Pages](https://runny-life.github.io/github-user-search-app/).
 
-The GitHub users API endpoint is `https://api.github.com/users/:username`. So, if you wanted to search for the Octocat profile, you'd be able to make a request to `https://api.github.com/users/octocat`.
+## My process
 
-### Expected behaviour
+### Built with
 
-- On first load, show the profile information for Octocat.
-- Display an error message (as shown in the design) if no user is found when a new search is made.
-- If a GitHub user hasn't added their name, show their username where the name would be without the `@` symbol and again below with the `@` symbol.
-- If a GitHub user's bio is empty, show the text "This profile has no bio" with transparency added (as shown in the design). The lorem ipsum text in the designs shows how the bio should look when it is present.
-- If any of the location, website, twitter, or company properties are empty, show the text "Not Available" with transparency added (as shown in the design).
-- Website, twitter, and company information should all be links to those resaources. For the company link, it should remove the `@` symbol and link to the company page on GitHub. For Octocat, with `@github` being returned for the company, this would lead to a URL of `https://github.com/github`.
+- Semantic HTML5
+- SCSS (Sass)
+- CSS custom properties and SCSS variables
+- Flexbox and CSS Grid
+- Responsive, mobile-first styling
+- Vanilla JavaScript (ES modules and classes)
+- [GitHub REST API](https://docs.github.com/en/rest/users/users)
+- [Octokit](https://github.com/octokit/octokit.js) for API requests
+- [Vite](https://vite.dev/) for development and production builds
+- [Prettier](https://prettier.io/) for code formatting
+- [Husky](https://typicode.github.io/husky/) and lint-staged for pre-commit formatting
 
-## Where to find everything
+### Project structure
 
-Your task is to build out the project to the design file provided. You can download the Figma design file on the platform. **Please be sure not to share it with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
+The application code is organized by responsibility:
 
-All the required assets for this project are in the `/assets` folder. The assets are already exported for the correct screen size and optimized. Some images are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
+```text
+src/
+├── assets/
+│   ├── fonts/
+│   └── image/
+├── scripts/
+│   ├── api/
+│   │   └── github-api.js
+│   ├── controllers/
+│   │   └── profile-search.js
+│   ├── ui/
+│   │   ├── profile-card.js
+│   │   └── theme-toggle.js
+│   └── main.js
+└── styles/
+    ├── abstracts/
+    ├── base/
+    ├── components/
+    ├── layout/
+    ├── theme/
+    └── style.scss
+```
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project.
+- **`api/`** contains the `GithubApi` class, which communicates with the GitHub API through Octokit.
+- **`controllers/`** contains the `ProfileSearch` class, which handles form submission, loading state, and search
+  errors.
+- **`ui/`** contains the classes responsible for rendering profile information and controlling the theme.
+- **`styles/`** separates shared design tools, base styles, components, layout, and theme definitions.
 
-## Using AI coding assistants
+### What I learned
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+- **Separating responsibilities:** Splitting API communication, search-flow logic, and DOM updates into separate classes
+  makes the code easier to understand and maintain.
+- **Working with an external API:** I used Octokit to request user data from the GitHub REST API and render the returned
+  information.
+- **Handling optional API fields:** Profile properties such as the bio, location, website, social account, and company
+  may be empty. The UI handles missing values with appropriate fallback text and disabled links.
+- **Managing themes:** The theme controller checks for a previously saved preference, falls back to the system
+  color-scheme preference, and stores manual theme changes in `localStorage`.
+- **Formatting dates:** `Intl.DateTimeFormat` converts the API's date value into a readable join date.
+- **Organizing SCSS:** Styles are split into focused files for the base layer, layout, components, and theme, while
+  shared variables and mixins help keep styling consistent.
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+### Continued development
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+In future projects, I would like to focus on:
 
-**Note:** These files are designed to help you _learn_, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+- Improving accessibility, including clearer status announcements and more detailed handling of form and API errors.
+- Adding more explicit loading feedback during API requests.
+- Reviewing edge cases such as network failures and GitHub API rate limits.
+- Expanding the application's test coverage.
+- Continuing to improve the structure and maintainability of JavaScript modules and SCSS.
 
-## Building your project
+### Useful resources
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- [GitHub REST API — Users](https://docs.github.com/en/rest/users/users) — API reference for retrieving public GitHub
+  user profiles.
+- [Octokit.js documentation](https://github.com/octokit/octokit.js) — Documentation for the JavaScript GitHub client
+  used to make API requests.
+- [MDN — Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) — Useful background on making
+  HTTP requests in JavaScript.
+- [MDN — `localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) — Reference for storing
+  the selected theme in the browser.
+- [MDN — `prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) —
+  Reference for detecting the user's system color-scheme preference.
+- [Sass documentation](https://sass-lang.com/documentation/) — Reference for SCSS features and project styling.
+- [Vite documentation](https://vite.dev/guide/) — Guide to the development server and production build.
 
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the Figma design file to GitHub. With these premium challenges, please be sure not to share the Figma design file in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+### AI collaboration
 
-## Deploying your project
+ChatGPT was used to help prepare and structure this README. The application code and implementation are documented based
+on the project files.
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+## Getting started
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### Prerequisites
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+- [Node.js](https://nodejs.org/) (a current LTS version is recommended)
+- npm
 
-## Create a custom `README.md`
+### Installation
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+1. Clone the repository:
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+   ```bash
+   git clone <your-repository-url>
+   ```
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+2. Move into the project directory:
 
-## Submitting your solution
+   ```bash
+   cd github-user-search-app
+   ```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+3. Install dependencies:
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+   ```bash
+   npm install
+   ```
 
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the Figma design file to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
+4. Start the development server:
 
-## Sharing your solution
+   ```bash
+   npm run dev
+   ```
 
-There are multiple places you can share your solution:
+5. Open the local URL printed by Vite in your terminal.
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community).
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+### Available scripts
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
+| Command             | Description                                                     |
+| ------------------- | --------------------------------------------------------------- |
+| `npm run dev`       | Starts the Vite development server.                             |
+| `npm run build`     | Creates an optimized production build in the `dist/` directory. |
+| `npm run preview`   | Serves the production build locally for preview.                |
+| `npm run formatter` | Runs Prettier across the project.                               |
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+## Author
 
-## Got feedback for us?
+- **Frontend Mentor:** [Frontend Mentor profile](https://www.frontendmentor.io/profile/runny-life).
+- **GitHub:** [GitHub profile](https://github.com/runny-life).
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+## Acknowledgments
 
-**Have fun building!** 🚀
+- [Frontend Mentor](https://www.frontendmentor.io/) for the challenge and design.
+- [GitHub](https://github.com/) for providing the REST API used to retrieve public profile information.
