@@ -72,15 +72,11 @@
   @include text-preset-5;
 
   position: absolute;
-  top: calc(100% + 15px);
+  top: 100%;
   right: 0;
   color: var(--error);
   transition: opacity 0.2s ease;
-
-  &:empty {
-    opacity: 0;
-    pointer-events: none;
-  }
+  text-wrap: nowrap;
 
   @include tablet {
     position: static;
