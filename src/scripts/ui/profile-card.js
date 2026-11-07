@@ -26,14 +26,13 @@ export class ProfileCard {
   }
 
   render(data) {
-    console.log(data);
     this.renderHeader(data);
     this.renderStats(data);
     this.renderLinks(data);
   }
 
   renderHeader(data) {
-    const displayName = data.name ?? data.logic;
+    const displayName = data.name ?? data.login;
 
     this.refs.avatar.src = data.avatar_url;
     this.refs.avatar.alt = displayName;
