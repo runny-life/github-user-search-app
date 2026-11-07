@@ -1,0 +1,34 @@
+@use '../abstracts' as *;
+@use '../base/typography' as *;
+
+.profile-error {
+  display: grid;
+  gap: $spacing-200;
+  padding-inline: $spacing-300;
+  padding-block: $spacing-400;
+  text-align: center;
+  background-color: var(--bg-card);
+  border-radius: $radius-16;
+  box-shadow: var(--shadow);
+
+  @include tablet {
+    padding-inline: $spacing-400;
+    padding-block: $spacing-600;
+  }
+
+  @include desktop {
+    padding-inline: $spacing-600;
+  }
+}
+
+.profile-error__title {
+  @include text-preset-2;
+
+  color: var(--text-primary);
+}
+
+.profile-error__text {
+  @include text-preset-6;
+
+  color: var(--text-muted);
+}

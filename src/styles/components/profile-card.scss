@@ -13,6 +13,12 @@
   @include tablet {
     grid-template-columns: auto 1fr;
     gap: $spacing-300 $spacing-400;
+    padding-inline: $spacing-400;
+    padding-block: $spacing-600;
+  }
+
+  @include desktop {
+    padding-inline: $spacing-600;
   }
 }
 
